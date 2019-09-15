@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeCockpitV2", "HomeCockpitV2\HomeCockpitV2.csproj", "{5BDE0BBD-7A51-4013-AF26-3251C9748367}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeCockpitV2UnitTests", "HomeCockpitV2UnitTests\HomeCockpitV2UnitTests.csproj", "{C57F55DC-FC47-4A39-B35D-F773FEC47893}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BDE0BBD-7A51-4013-AF26-3251C9748367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BDE0BBD-7A51-4013-AF26-3251C9748367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BDE0BBD-7A51-4013-AF26-3251C9748367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BDE0BBD-7A51-4013-AF26-3251C9748367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C57F55DC-FC47-4A39-B35D-F773FEC47893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57F55DC-FC47-4A39-B35D-F773FEC47893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57F55DC-FC47-4A39-B35D-F773FEC47893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57F55DC-FC47-4A39-B35D-F773FEC47893}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8AB82FB-87BD-47A2-A438-3516D9C73CF2}
+	EndGlobalSection
+EndGlobal
