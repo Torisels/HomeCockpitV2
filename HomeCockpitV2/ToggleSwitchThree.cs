@@ -9,7 +9,7 @@ namespace HomeCockpitV2
 {
     class ToggleSwitchThree : IInput<int>
     {
-        public readonly int _id;
+        public readonly int ElementID;
 
         private byte _regA;
         private int _bitA;
@@ -21,9 +21,9 @@ namespace HomeCockpitV2
 
         private int _position;
         private int _lastPosition = -2;
-        public ToggleSwitchThree(int id, byte regA, int bitA, byte regB, int bitB)
+        public ToggleSwitchThree(int elementId, byte regA, int bitA, byte regB, int bitB)
         {
-            this._id = id;
+            ElementID = elementId;
             _regA = regA;
             _bitA = bitA;
             _regB = regB;

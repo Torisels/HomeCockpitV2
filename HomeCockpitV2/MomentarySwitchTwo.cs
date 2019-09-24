@@ -4,16 +4,21 @@ namespace HomeCockpitV2
 {
     class MomentarySwitchTwo : IInput<int>
     {
+        public readonly int ElementId;
+
+
+
         private int _currentState = -1;
         private int _previousState = -1;
 
         private readonly byte _register;
         private readonly int _bit;
 
-        public MomentarySwitchTwo(byte register, int bit)
+        public MomentarySwitchTwo(byte register, int bit, int elementId)
         {
             _register = register;
             _bit = bit;
+            ElementId = elementId;
         }
 
         public void Setup()

@@ -9,13 +9,13 @@ namespace HomeCockpitV2UnitTests
         [TestMethod]
         public void TestMethod1()
         {
-            var result = HomeCockpitV2.Bit.IsBitSet(0b00110011, 0);
+            var result = Bit.IsBitSet(0b00110011, 0);
             Assert.IsTrue(result);
         }
         [TestMethod]
         public void TestMethod2()
         {
-            var result = HomeCockpitV2.Bit.IsBitSet(0b00110011, 2);
+            var result = Bit.IsBitSet(0b00110011, 2);
             Assert.IsFalse(result);
         }
     }

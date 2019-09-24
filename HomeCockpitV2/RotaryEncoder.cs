@@ -8,9 +8,6 @@ namespace HomeCockpitV2
 {
     class RotaryEncoder : IInput<int>
     {
-        //db reference
-        private string _name = "RotaryEncoder";
-
         //key variables
         private int _oldState = 3;
         private int _position = 0;
@@ -53,13 +50,13 @@ namespace HomeCockpitV2
 
         public void HandleInput(ref byte[] data)
         {
-            tick(data);
+            Tick(data);
         }
 
    
         public int GetDataForSim()
         {
-            return getDelta();
+            return GetDelta();
         }
 
         public int getPos()
@@ -67,50 +64,36 @@ namespace HomeCockpitV2
             return _positionExt;
         }
 
-        public void tick(byte[] registers)
+        private void Tick(byte[] inputData)
         {
-            var thisState = Bit.GetBitAsInt(registers[_register1], _bit1) | (Bit.GetBitAsInt(registers[_register2], _bit2) << 1);
+            var thisState = Bit.GetBitAsInt(inputData[_register1], _bit1) | (Bit.GetBitAsInt(inputData[_register2], _bit2) << 1);
 
             if (_oldState != thisState)
             {
 
                 _position += _knobdir[thisState | (_oldState << 2)];
 
-
                 if (thisState == LATCH_STATE)
                 {
-                    int _tempPos = _position >> 2;
-                    //Console.WriteLine(_tempPos);
-//                    if (_tempPos > _positionExt)
-//                        //Form1.Connector.SendEvent((PMDG.PMDGEvents)_eventId, PMDG.MOUSE_FLAG_LEFTSINGLE);
-//                    else if (_tempPos < _positionExt)
-//                        //Form1.Connector.SendEvent((PMDG.PMDGEvents)_eventId, PMDG.MOUSE_FLAG_RIGHTSINGLE);
-                    _positionExt = _tempPos;
+                    _positionExt = _position >> 2;
                 }
                 _oldState = thisState;
             }
         }
 
-        public int getDelta()
+        private int GetDelta()
         {
             int ret = 0;
 
             if (_positionExtPrev > _positionExt)
             {
                 ret = -1;
-                _positionExtPrev = _positionExt;
             }
             else if (_positionExtPrev < _positionExt)
             {
                 ret = 1;
-                _positionExtPrev = _positionExt;
             }
-            else
-            {
-                ret = 0;
-                _positionExtPrev = _positionExt;
-            }
-
+            _positionExtPrev = _positionExt;
             return ret;
         }
     }
