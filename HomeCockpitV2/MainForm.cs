@@ -23,6 +23,8 @@ namespace HomeCockpitV2
             var item1 = resultList.ElementAt(5-1);
             Console.WriteLine(@"Pin: {0}, Register: {1}, Bit: {2}", 5, item1.Register, item1.Bit);
             FillDataGridViewPins();
+
+            Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
         }
 
         public void FillDataGridViewPins()

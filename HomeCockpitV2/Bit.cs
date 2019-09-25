@@ -8,7 +8,7 @@ namespace HomeCockpitV2
 {
    public class Bit
     {
-        public static bool IsBitSet(byte b, int pos)
+        public static bool IsBitSet(int b, int pos)
         {
             return (b & (1 << pos)) != 0;
         }

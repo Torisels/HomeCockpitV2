@@ -14,22 +14,25 @@ namespace HomeCockpitV2
 
         public DataBase()
         {
-           connection = new SQLiteConnection("Data Source=MyDatabase.sqlite;Version=3;");
+           connection = new SQLiteConnection("Data Source=C:\\Users\\Gustaw\\source\\repos\\HomeCockpitV2solution\\MyDatabase.sqlite;Version=3;");
            connection.Open();
         }
 
-        public HashSet<BitRegisterPair> GetBitRegisterPairs()
+        public BitRegisterPair[] GetBitRegisterPairs()
         {
-            var ret = new HashSet<BitRegisterPair>();
+            var ret = new BitRegisterPair[101];
+            ret[0] = new BitRegisterPair { Bit=-1,Register = -1};
             string sqlcommand = "select mcu_id, mcu_reg, reg_bit from Pins";
             SQLiteCommand cmd = new SQLiteCommand(sqlcommand,connection);
             SQLiteDataReader reader= cmd.ExecuteReader();
+            int i = 1;
+
             while (reader.Read())
             {
-                ret.Add(new BitRegisterPair
+                ret[i++] = (new BitRegisterPair
                 {
-                    Register = (byte)McuRegisterToMasterBufferRegisterIndex((int)reader["mcu_id"],reader["mcu_reg"]),
-                    Bit = Convert.ToByte(reader["reg_bit"])
+                    Register = McuRegisterToMasterBufferRegisterIndex((int) reader["mcu_id"], reader["mcu_reg"]),
+                    Bit = Convert.ToInt32(reader["reg_bit"])
                 });
             }
 
@@ -78,8 +81,6 @@ namespace HomeCockpitV2
         {
             return Convert.ToInt32(4 * Convert.ToInt16(mcuId) + Convert.ToInt16(mcuRegister));
         }
-
-
 
     }
 

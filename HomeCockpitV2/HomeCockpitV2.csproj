@@ -51,7 +51,9 @@
   <ItemGroup>
     <Compile Include="Bit.cs" />
     <Compile Include="BitRegisterPair.cs" />
+    <Compile Include="Board.cs" />
     <Compile Include="DataBase.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

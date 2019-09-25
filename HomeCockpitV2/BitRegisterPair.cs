@@ -9,7 +9,7 @@ namespace HomeCockpitV2
 {
     public class BitRegisterPair
     {
-        public byte Register { get; set; }
-        public byte Bit { get; set; }
+        public int Register { get; set; }
+        public int Bit { get; set; }
     }
 }
